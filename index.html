@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomoDynamics — Ancient Philosophy through a 21st‑Century Physicist’s Lens</title>
+  <meta name="description" content="HomoDynamics is a philosophical orientation that reads human life as dynamics: states, flows, feedback and time. Ancient philosophy, modern physics." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: rgba(17,24,39,.5);
+      --stroke: rgba(148,163,184,.65);
+      --accent: #60a5fa; /* blue-400 */
+      --accent-2: #f59e0b; /* amber-500 */
+      --accent-3: #22c55e; /* green-500 */
+    }
+    html, body { background: var(--bg); color: #e2e8f0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .hero-gradient { background: radial-gradient(ellipse at 50% -30%, rgba(37,99,235,.35), transparent 60%), radial-gradient(ellipse at 80% 10%, rgba(99,102,241,.25), transparent 55%), radial-gradient(ellipse at 20% -10%, rgba(14,165,233,.2), transparent 45%); }
+    .section-gradient { background: radial-gradient(ellipse at 50% -10%, rgba(30,58,138,.15), transparent 75%); }
+    .card { background: var(--panel); backdrop-filter: blur(10px); border: 1px solid rgba(55,65,81,.35); transition: transform .3s, box-shadow .3s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(2,6,23,.45); }
+    .tag { display:inline-block; padding:.25rem .75rem; border-radius:9999px; font-size:.75rem; font-weight:600; }
+    .rendered-image { border-radius:.75rem; border:1px solid rgba(55,65,81,.35); background:#0b1220; }
+    .glass { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 1px solid rgba(148,163,184,.15); }
+    .skew-underline { box-shadow: inset 0 -0.35em 0 rgba(99,102,241,.2); }
+    @keyframes floaty { 0%{transform:translateY(0)} 50%{transform:translateY(-6px)} 100%{transform:translateY(0)} }
+    .floaty { animation: floaty 6s ease-in-out infinite; }
+  </style>
+</head>
+<body class="antialiased">
+  <noscript>
+    <div class="bg-amber-900 text-amber-100 text-center py-2">This site uses a tiny bit of JavaScript for the mobile menu and SVG downloads. Everything else works without it.</div>
+  </noscript>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#top" class="flex items-center gap-2 text-white">
+          <span class="text-xl font-extrabold">HomoDynamics</span>
+        </a>
+        <nav class="hidden md:flex gap-8">
+          <a href="#originator" class="text-gray-300 hover:text-white">Originator</a>
+          <a href="#model" class="text-gray-300 hover:text-white">Model</a>
+          <a href="#philosophy" class="text-gray-300 hover:text-white">Origins</a>
+          <a href="#gallery" class="text-gray-300 hover:text-white">Diagrams</a>
+          <a href="#applications" class="text-gray-300 hover:text-white">Applications</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10" aria-label="Open menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-800 bg-black/60 backdrop-blur-lg">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#originator" class="block text-gray-300 hover:text-white">Originator</a>
+        <a href="#model" class="block text-gray-300 hover:text-white">Model</a>
+        <a href="#philosophy" class="block text-gray-300 hover:text-white">Origins</a>
+        <a href="#gallery" class="block text-gray-300 hover:text-white">Diagrams</a>
+        <a href="#applications" class="block text-gray-300 hover:text-white">Applications</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="relative pt-28 sm:pt-36 pb-16 hero-gradient overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <p class="text-sm sm:text-base font-semibold text-sky-300 tracking-widest uppercase">Ancient Philosophy • Modern Dynamics</p>
+          <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">HomoDynamics</h1>
+          <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-300">A philosophical orientation that reads human life as <span class="skew-underline">living motion</span>—states, flows, feedback and time—through the lens of a 21st‑century physicist.</p>
+          <div class="mt-10 flex items-center justify-center gap-4">
+            <a href="#model" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition">Explore the Model</a>
+            <a href="#philosophy" class="inline-block border border-gray-700 text-gray-200 font-semibold px-6 py-3 rounded-md hover:bg-white/5 transition">Philosophical Origins</a>
+          </div>
+        </div>
+      </div>
+      <!-- Decorative constellation dots -->
+      <svg aria-hidden="true" class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-40" width="1200" height="240" viewBox="0 0 1200 240" fill="none">
+        <g stroke="rgba(148,163,184,.25)" stroke-width="1">
+          <circle cx="80" cy="60" r="1.5"/><circle cx="180" cy="30" r="1.5"/><circle cx="260" cy="90" r="1.5"/>
+          <circle cx="360" cy="50" r="1.5"/><circle cx="520" cy="40" r="1.5"/><circle cx="680" cy="70" r="1.5"/>
+          <circle cx="840" cy="30" r="1.5"/><circle cx="980" cy="80" r="1.5"/><circle cx="1120" cy="45" r="1.5"/>
+        </g>
+      </svg>
+    </section>
+
+    <!-- Originator (kept minimal per preference) -->
+    <section id="originator" class="py-20 sm:py-24 section-gradient">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Originator</h2>
+          <p class="mt-4 text-lg text-gray-400">HomoDynamics was originated by <span class="font-semibold text-blue-300">Amit Srivastava</span>. The project stands as a bridge between contemplative lineages and the measured language of physics. This page focuses on the construct; forthcoming publications will elaborate further.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HomoDynamics Model -->
+    <section id="model" class="py-20 sm:py-24 section-gradient">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">The Model at a Glance</h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Human becoming as an emergent interplay of three coordinates—Energy, Space, and Time—observed as trajectories rather than labels.</p>
+        </div>
+
+        <!-- Triad Diagram (inline SVG generated) -->
+        <figure class="mt-12 max-w-3xl mx-auto">
+          <div class="rendered-image p-4">
+            <svg viewBox="0 0 900 420" class="w-full h-auto" role="img" aria-labelledby="triadTitle triadDesc">
+              <title id="triadTitle">Triad of Energy, Space, and Time</title>
+              <desc id="triadDesc">Three softly glowing nodes connected by curved paths on a dark field.</desc>
+              <defs>
+                <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7dd3fc" stop-opacity=".9"/><stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/></radialGradient>
+                <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#86efac" stop-opacity=".9"/><stop offset="100%" stop-color="#22c55e" stop-opacity="0"/></radialGradient>
+                <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fde68a" stop-opacity=".9"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+                <filter id="shadow"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#60a5fa" flood-opacity=".25"/></filter>
+              </defs>
+              <rect width="100%" height="100%" rx="12" fill="#0b1220"/>
+              <!-- Edges -->
+              <g stroke="url(#gradEdge)" stroke-width="1.5" fill="none" opacity=".8">
+                <path d="M150,280 C270,140 630,140 750,280" stroke="rgba(148,163,184,.45)"/>
+                <path d="M150,280 C260,360 640,360 750,280" stroke="rgba(148,163,184,.25)"/>
+                <path d="M450,80 C450,140 450,220 450,280" stroke="rgba(148,163,184,.35)"/>
+              </g>
+              <!-- Nodes -->
+              <g filter="url(#shadow)">
+                <circle cx="150" cy="280" r="70" fill="url(#glowBlue)"/>
+                <circle cx="450" cy="80" r="70" fill="url(#glowGreen)"/>
+                <circle cx="750" cy="280" r="70" fill="url(#glowAmber)"/>
+              </g>
+              <!-- Labels -->
+              <g font-family="Inter,ui-sans-serif" font-weight="700" text-anchor="middle" fill="#e5e7eb">
+                <text x="150" y="286" font-size="18">Energy</text>
+                <text x="450" y="86" font-size="18">Space</text>
+                <text x="750" y="286" font-size="18">Time</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption class="mt-3 text-center text-sm text-gray-400">Triad coordinates connected by smooth paths — a schematic, not a prescription.</figcaption>
+        </figure>
+
+        <!-- Three columns description -->
+        <div class="mt-12 grid gap-8 md:grid-cols-3">
+          <div class="card p-8 rounded-lg">
+            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+            <h3 class="mt-6 text-xl font-semibold text-white">Energy</h3>
+            <p class="mt-4 text-gray-400">Vital throughput and conversion. A conserved reality shaped by dispersion—managed, not hoarded.</p>
+            <div class="mt-4"><span class="tag bg-sky-900 text-sky-100">Thermodynamics</span></div>
+          </div>
+          <div class="card p-8 rounded-lg">
+            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-600 text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 1v4m0 0h-4m4 0l-5-5"/></svg></div>
+            <h3 class="mt-6 text-xl font-semibold text-white">Space</h3>
+            <p class="mt-4 text-gray-400">Contexts and constraints. Feedback architecture where balancing loops maintain coherence.</p>
+            <div class="mt-4"><span class="tag bg-emerald-900 text-emerald-100">Cybernetics</span></div>
+          </div>
+          <div class="card p-8 rounded-lg">
+            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+            <h3 class="mt-6 text-xl font-semibold text-white">Time</h3>
+            <p class="mt-4 text-gray-400">Histories and compounding. Reinforcing loops that amplify patterns—toward decay or growth.</p>
+            <div class="mt-4"><span class="tag bg-fuchsia-900 text-fuchsia-100">Systems Theory</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophical Architecture (Origins) -->
+    <section id="philosophy" class="py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <p class="text-base font-semibold tracking-wider text-sky-300 uppercase">Ancient Wisdom, Modern Lens</p>
+          <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Philosophical Architecture</h2>
+          <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-400">HomoDynamics derives its grammar from old intuitions—flux, breath, interdependence, balance, time, selfhood, ethics, attention—translated into the language of dynamics.</p>
+        </div>
+
+        <div class="mt-16 grid gap-8 md:grid-cols-2">
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Flux → Process over Substance</h3>
+            <p class="mt-3 text-gray-300">Heraclitus’ <em>panta rhei</em>, Buddhist impermanence, Daoist verbs: stability belongs to behavior across time, not to a frozen identity.</p>
+          </div>
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Breath/Energy → Order far from Equilibrium</h3>
+            <p class="mt-3 text-gray-300">Vedic <em>prāṇa</em>, Chinese <em>qì</em>: life as throughput—capture, transform, distribute, dissipate.</p>
+          </div>
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Interdependence → Feedback</h3>
+            <p class="mt-3 text-gray-300">Dependent origination and control: balancing and reinforcing loops write experience.</p>
+          </div>
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Balance → Oscillation</h3>
+            <p class="mt-3 text-gray-300">Yin–yang, Aristotle’s mean: coherence as motion that doesn’t tear itself apart.</p>
+          </div>
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Time → Impulse Responses</h3>
+            <p class="mt-3 text-gray-300">Return curves after disturbance—snap back, ring and settle, or shift to a new basin.</p>
+          </div>
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Selfhood → Pattern</h3>
+            <p class="mt-3 text-gray-300">The whirlpool image: identity as structure-through-change.</p>
+          </div>
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Ethics → Feasible Region</h3>
+            <p class="mt-3 text-gray-300">Dharma, phronesis: constraints that keep motion humane.</p>
+          </div>
+          <div class="card glass p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Attention → Measurement</h3>
+            <p class="mt-3 text-gray-300">Calibrate the lens; what we sample becomes model and movement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagram Gallery (all images are inline SVGs and downloadable) -->
+    <section id="gallery" class="py-20 sm:py-24 section-gradient">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Minimal Diagrams</h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Abstract visuals to accompany the orientation. Right‑click or tap‑and‑hold to save; or use the download buttons.</p>
+        </div>
+
+        <!-- Phase Portrait with Attractors -->
+        <div class="mt-12 grid gap-8 lg:grid-cols-2">
+          <figure class="card p-4 rounded-lg">
+            <div class="flex justify-between items-center px-2 pt-2">
+              <figcaption class="text-sm text-gray-300">Phase portrait (plural attractors)</figcaption>
+              <button class="text-xs px-2 py-1 border border-gray-700 rounded hover:bg-white/5" onclick="downloadSVG('phaseSVG','phase-portrait.svg')">Download SVG</button>
+            </div>
+            <svg id="phaseSVG" viewBox="0 0 800 500" class="w-full h-auto rendered-image floaty" role="img" aria-label="Phase portrait with flow field and attractors">
+              <defs>
+                <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#94a3b8" stop-opacity=".15"/>
+                  <stop offset="100%" stop-color="#94a3b8" stop-opacity=".4"/>
+                </linearGradient>
+                <radialGradient id="attrAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+                <radialGradient id="attrBlue" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/></radialGradient>
+                <radialGradient id="attrGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#10b981" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="100%" height="100%" rx="12" fill="#0b1220" />
+              <!-- vector field (stylized short strokes) -->
+              <g stroke="url(#flowGrad)" stroke-linecap="round">
+                <!-- generate a field manually -->
+                <script type="application/ecmascript"><![CDATA[
+                  const svg = document.currentScript.ownerSVGElement;
+                  const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+                  for(let y=40; y<460; y+=28){
+                    for(let x=40; x<760; x+=28){
+                      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+                      const dx = Math.sin((y/80))+ (350-x)/500; // ad‑hoc field
+                      const dy = Math.cos((x/120))+ (250-y)/600;
+                      const len = 10;
+                      line.setAttribute('x1', x - dx*len);
+                      line.setAttribute('y1', y - dy*len);
+                      line.setAttribute('x2', x + dx*len);
+                      line.setAttribute('y2', y + dy*len);
+                      line.setAttribute('stroke-width','1.5');
+                      g.appendChild(line);
+                    }
+                  }
+                  svg.insertBefore(g, svg.firstChild.nextSibling);
+                ]]></script>
+              </g>
+              <!-- attractors -->
+              <circle cx="170" cy="160" r="22" fill="url(#attrBlue)" />
+              <circle cx="410" cy="360" r="22" fill="url(#attrGreen)" />
+              <circle cx="640" cy="220" r="22" fill="url(#attrAmber)" />
+            </svg>
+          </figure>
+
+          <!-- Impulse Responses -->
+          <figure class="card p-4 rounded-lg">
+            <div class="flex justify-between items-center px-2 pt-2">
+              <figcaption class="text-sm text-gray-300">Impulse responses (forms of return)</figcaption>
+              <button class="text-xs px-2 py-1 border border-gray-700 rounded hover:bg-white/5" onclick="downloadSVG('impulseSVG','impulse-responses.svg')">Download SVG</button>
+            </div>
+            <svg id="impulseSVG" viewBox="0 0 800 500" class="w-full h-auto rendered-image" role="img" aria-label="Three impulse response curves">
+              <rect width="100%" height="100%" rx="12" fill="#0b1220" />
+              <g stroke="#475569" stroke-opacity=".35" stroke-width="1">
+                <!-- axes -->
+                <line x1="60" y1="420" x2="740" y2="420"/>
+                <line x1="60" y1="420" x2="60" y2="60"/>
+              </g>
+              <!-- curves -->
+              <path d="M60 420 C 200 200, 260 200, 420 420" stroke="#a5b4fc" stroke-width="2.5" fill="none"/>
+              <path d="M60 420 C 200 100, 300 540, 420 420 S 620 380, 740 420" stroke="#60a5fa" stroke-width="2.5" fill="none"/>
+              <path d="M60 420 C 140 350, 260 330, 740 330" stroke="#34d399" stroke-width="2.5" fill="none"/>
+              <text x="720" y="440" font-size="12" fill="#94a3b8">t</text>
+            </svg>
+          </figure>
+
+          <!-- Feedback Loops -->
+          <figure class="card p-4 rounded-lg lg:col-span-2">
+            <div class="flex justify-between items-center px-2 pt-2">
+              <figcaption class="text-sm text-gray-300">Balancing (−) and Reinforcing (+) loops</figcaption>
+              <button class="text-xs px-2 py-1 border border-gray-700 rounded hover:bg-white/5" onclick="downloadSVG('loopsSVG','feedback-loops.svg')">Download SVG</button>
+            </div>
+            <svg id="loopsSVG" viewBox="0 0 1000 320" class="w-full h-auto rendered-image" role="img" aria-label="Two feedback loops with minus and plus">
+              <rect width="100%" height="100%" rx="12" fill="#0b1220" />
+              <!-- left loop -->
+              <g transform="translate(200,160)">
+                <circle r="90" fill="none" stroke="#94a3b8" stroke-opacity=".45" stroke-width="2"/>
+                <text x="0" y="6" text-anchor="middle" font-size="28" fill="#e5e7eb">−</text>
+              </g>
+              <!-- right loop -->
+              <g transform="translate(800,160)">
+                <circle r="90" fill="none" stroke="#94a3b8" stroke-opacity=".45" stroke-width="2"/>
+                <text x="0" y="10" text-anchor="middle" font-size="26" fill="#e5e7eb">+</text>
+              </g>
+            </svg>
+          </figure>
+
+          <!-- Lever & Choke schematic -->
+          <figure class="card p-4 rounded-lg lg:col-span-2">
+            <div class="flex justify-between items-center px-2 pt-2">
+              <figcaption class="text-sm text-gray-300">Leverage vs. choke (small input, large effect)</figcaption>
+              <button class="text-xs px-2 py-1 border border-gray-700 rounded hover:bg-white/5" onclick="downloadSVG('leverSVG','leverage-choke.svg')">Download SVG</button>
+            </div>
+            <svg id="leverSVG" viewBox="0 0 1000 380" class="w-full h-auto rendered-image" role="img" aria-label="Lever lifting a block">
+              <rect width="100%" height="100%" rx="12" fill="#0b1220" />
+              <g>
+                <rect x="640" y="180" width="160" height="120" rx="8" fill="#7f1d1d" fill-opacity=".9" stroke="#ef4444" stroke-opacity=".6"/>
+                <text x="720" y="250" text-anchor="middle" font-size="14" fill="#fecaca">Choke</text>
+                <rect x="280" y="210" width="12" height="60" fill="#94a3b8" fill-opacity=".6"/>
+                <path d="M160 260 L 600 200" stroke="#60a5fa" stroke-width="6" />
+                <circle cx="160" cy="260" r="14" fill="#0ea5e9"/>
+                <text x="160" y="290" text-anchor="middle" font-size="12" fill="#93c5fd">Leverage</text>
+                <path d="M280 270 C 290 320, 350 330, 380 320" stroke="#94a3b8" stroke-opacity=".4" stroke-width="2" fill="none"/>
+              </g>
+            </svg>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Choke & Leverage Points (copy adjusted to be non-prescriptive) -->
+    <section class="py-20 sm:py-24 section-gradient">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Choke & Leverage</h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">A descriptive lens for where motion jams and where a light touch can travel far.</p>
+        </div>
+        <div class="mt-12 max-w-5xl mx-auto border border-gray-700 rounded-lg p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-semibold text-red-400">Choke (System Jam)</h3>
+              <ul class="mt-4 space-y-2 list-disc list-inside text-gray-400">
+                <li><strong>Energy:</strong> budget shortfalls; dispersion outruns capture.</li>
+                <li><strong>Space:</strong> feedback ignored; contexts misfit tasks.</li>
+                <li><strong>Time:</strong> reinforcing spirals saturate; return delayed.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-green-400">Leverage (Small → Large)</h3>
+              <ul class="mt-4 space-y-2 list-disc list-inside text-gray-400">
+                <li><strong>Energy:</strong> re‑prioritize capture/throughput over hoarding.</li>
+                <li><strong>Space:</strong> tweak constraints/affordances to re‑enable balance.</li>
+                <li><strong>Time:</strong> seed a pattern that compounds in the desired direction.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications (kept high-level) -->
+    <section id="applications" class="py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Applications</h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Personal reflection, team sense‑making, curriculum design, research heuristics. A lens first—methods can follow.</p>
+        </div>
+        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="card p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Personal Reflection</h3>
+            <p class="mt-3 text-gray-300">Describe trajectories without judgment: where motion jams; what returns look like; which constraints keep you humane.</p>
+          </div>
+          <div class="card p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Teams & Orgs</h3>
+            <p class="mt-3 text-gray-300">Map loops, constraints, and compounding patterns. Adjust contexts before exhorting traits.</p>
+          </div>
+          <div class="card p-6 rounded-lg">
+            <h3 class="text-lg font-semibold text-white">Learning & Research</h3>
+            <p class="mt-3 text-gray-300">Use the grammar—states, flows, feedback, time—as scaffolds for inquiry and curriculum.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+      <p>© <span id="yr"></span> HomoDynamics. Originated by Amit Srivastava.</p>
+      <p class="mt-2 text-xs">Content is philosophical in nature; diagrams are schematic. No claims of clinical efficacy are made.</p>
+    </div>
+  </footer>
+
+  <script>
+    // mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+    // footer year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    // download helper for inline SVGs
+    function downloadSVG(id, filename){
+      const svg = document.getElementById(id);
+      if(!svg) return;
+      const serializer = new XMLSerializer();
+      let source = serializer.serializeToString(svg);
+      if(!source.match(/^<svg[^>]+xmlns=/)) source = source.replace('<svg','<svg xmlns="http://www.w3.org/2000/svg"');
+      source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+      const url = URL.createObjectURL(new Blob([source], {type: 'image/svg+xml;charset=utf-8'}));
+      const a = document.createElement('a');
+      a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url), 1000);
+    }
+    window.downloadSVG = downloadSVG;
+  </script>
+</body>
+</html>
