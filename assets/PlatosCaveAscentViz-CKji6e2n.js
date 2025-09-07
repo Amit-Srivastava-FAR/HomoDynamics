@@ -1,0 +1,5 @@
+import{j as e}from"./index-j2K7vw2W.js";import{D as i}from"./D3Visualization-CiR6bmyu.js";import"./transform-D71MbgT6.js";const a=()=>{const n=[{id:"cave",name:`Cave
+(Ignorance)`,x:150,y:300,color:"#8B4513"},{id:"pain",name:`Pain of
+Ascent`,x:250,y:250,color:"#DC143C"},{id:"sunlight",name:`Sunlight
+(Truth)`,x:350,y:150,color:"#FFD700"},{id:"enlightenment",name:"Enlightenment",x:250,y:50,color:"#32CD32"},{id:"return",name:`Return to
+Cave`,x:150,y:100,color:"#9370DB"}],t=[{source:"cave",target:"pain",value:1},{source:"pain",target:"sunlight",value:1},{source:"sunlight",target:"enlightenment",value:1},{source:"enlightenment",target:"return",value:1}];return e.jsxs("div",{style:{textAlign:"center"},children:[e.jsx("h3",{style:{color:"#3A3A3A",marginBottom:"1rem"},children:"The Ascent: Model Refinement Journey"}),e.jsx("div",{style:{height:"350px",width:"100%",marginBottom:"1rem"},children:e.jsx(i,{nodes:n,links:t})}),e.jsx("p",{style:{fontSize:"0.9rem",color:"#666",lineHeight:"1.4"},children:"Cave → Pain → Sunlight → Enlightenment → Return"})]})};export{a as default};
