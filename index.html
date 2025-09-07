@@ -152,6 +152,29 @@
         justify-content: center !important;
       }
 
+      .hero-title-container {
+        flex-direction: row !important;
+        align-items: baseline !important;
+        justify-content: center !important;
+        flex-wrap: nowrap !important; /* Force no wrapping */
+        gap: 0 !important;
+        white-space: nowrap !important; /* Prevent text wrapping */
+        overflow: visible !important;
+      }
+
+      .hero-word {
+        font-size: clamp(1.5rem, 8vw, 3rem) !important; /* Smaller for mobile */
+        white-space: nowrap !important;
+        display: inline-block !important;
+      }
+
+      .hero-plus {
+        font-size: clamp(1.5rem, 8vw, 3rem) !important;
+        margin: 0 0.3rem !important; /* Smaller margin */
+        white-space: nowrap !important;
+        display: inline-block !important;
+      }
+
       .section-page-grid {
         display: grid !important;
         grid-template-columns: 55% 40% !important;

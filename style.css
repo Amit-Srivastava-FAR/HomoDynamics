@@ -498,17 +498,23 @@ body {
     flex-direction: row !important; /* Keep horizontal for animation */
     align-items: baseline !important;
     justify-content: center !important;
-    flex-wrap: wrap !important; /* Allow wrapping if needed */
+    flex-wrap: nowrap !important; /* Force no wrapping */
     gap: 0 !important; /* Remove gap to allow proper merging */
+    white-space: nowrap !important; /* Prevent text wrapping */
+    overflow: visible !important;
   }
 
   .hero-word {
-    font-size: clamp(1.8rem, 10vw, 3.5rem) !important; /* Slightly smaller for mobile */
+    font-size: clamp(1.5rem, 8vw, 3rem) !important; /* Smaller for mobile */
+    white-space: nowrap !important;
+    display: inline-block !important;
   }
 
   .hero-plus {
-    font-size: clamp(1.8rem, 10vw, 3.5rem) !important;
-    margin: 0 0.5rem !important; /* Restore margin for proper spacing */
+    font-size: clamp(1.5rem, 8vw, 3rem) !important;
+    margin: 0 0.3rem !important; /* Smaller margin for mobile */
+    white-space: nowrap !important;
+    display: inline-block !important;
   }
 
   .hero-byline {
