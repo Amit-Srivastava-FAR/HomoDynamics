@@ -11,19 +11,13 @@
       background-color: #FDFBF6;
       color: #3A3A3A;
       font-family: 'Georgia', serif;
-      min-height: 100vh;
-      overflow-x: hidden;
     }
-
-    html {
-      height: 100%;
-    }
-
+    /* Root layout for React app */
     #root {
-      min-height: 100vh;
       display: flex;
-      flex-direction: column;
+      min-height: 100vh;
     }
+
     /* Custom Scrollbar for a refined look */
     ::-webkit-scrollbar {
       width: 8px;
@@ -82,38 +76,61 @@
     }
 
     @media (max-width: 800px) {
-      .menu-button {
-        display: block;
+      html {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
       }
 
       #root {
         flex-direction: column !important;
+        min-height: 100vh !important;
+        width: 100% !important;
       }
 
       .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 1000;
-        transform: translateX(-100%);
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 1000 !important;
+        transform: translateX(-100%) !important;
         transition: transform 0.3s ease-in-out;
-        box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
+        box-shadow: 4px 0px 15px rgba(0,0,0,0.1) !important;
         border-right: none !important;
         width: 100% !important;
         max-width: none !important;
+        height: 100vh !important;
       }
 
       .sidebar.is-open {
-        transform: translateX(0);
+        transform: translateX(0) !important;
+      }
+
+      .menu-button {
+        display: block !important;
+      }
+
+      .overlay {
+        display: block !important;
       }
 
       .main-content {
-        padding: 0 !important;
-        height: auto !important;
-        overflow-y: visible !important;
-        min-height: 100vh !important;
+        flex: 1 !important;
         width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: visible !important;
+        box-sizing: border-box !important;
       }
 
       .hero {
@@ -123,36 +140,34 @@
         padding: 2rem 1rem !important;
         width: 100% !important;
         box-sizing: border-box !important;
-      }
-
-      .hero-title-container {
+        display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 0.5rem !important;
-      }
-
-      .hero-word {
-        font-size: clamp(2rem, 12vw, 4rem) !important;
-      }
-
-      .hero-plus {
-        font-size: clamp(2rem, 12vw, 4rem) !important;
-        margin: 0 !important;
-      }
-
-      .hero-byline {
-        font-size: 1rem !important;
-        margin-top: 1rem !important;
+        justify-content: center !important;
       }
 
       .section-page-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 2rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .section-page-viz {
         position: static !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .section-page .content {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .section-page .viz {
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       /* Typography adjustments */
@@ -164,6 +179,22 @@
       }
       h4 {
         font-size: 1.25rem !important;
+      }
+
+      .footer {
+        padding: 1rem !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .sub-section {
+        flex-direction: column !important;
+      }
+
+      .sub-section canvas {
+        width: 100% !important;
+        height: 250px !important;
       }
     }
   </style>

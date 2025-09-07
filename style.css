@@ -406,44 +406,58 @@ body {
 @media (max-width: 800px) {
   html {
     height: 100%;
+    width: 100%;
   }
 
   body {
     min-height: 100vh;
     overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   #root {
-    flex-direction: column;
-    min-height: 100vh;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    width: 100% !important;
   }
+
   .sidebar {
-    position: fixed; /* Override desktop sticky for mobile */
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1000; /* Higher z-index for mobile when open */
-    transform: translateX(-100%); /* Hidden by default on mobile */
-    box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
+    position: fixed !important; /* Override desktop sticky for mobile */
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    z-index: 1000 !important; /* Higher z-index for mobile when open */
+    transform: translateX(-100%) !important; /* Hidden by default on mobile */
+    box-shadow: 4px 0px 15px rgba(0,0,0,0.1) !important;
     border-right: none !important;
     width: 100% !important;
     max-width: none !important;
+    height: 100vh !important;
   }
+
   .sidebar.is-open {
-    transform: translateX(0); /* Visible when open on mobile */
+    transform: translateX(0) !important; /* Visible when open on mobile */
   }
+
   .menu-button {
-    display: block;
+    display: block !important;
   }
+
   .overlay {
-    display: block;
+    display: block !important;
   }
+
   .main-content {
-    padding: 0 !important;
-    height: auto !important;
-    overflow-y: visible !important;
-    min-height: 100vh !important;
+    flex: 1 !important;
     width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: visible !important;
+    box-sizing: border-box !important;
   }
 
   .hero {
@@ -453,6 +467,10 @@ body {
     padding: 2rem 1rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .hero-title-container {
@@ -478,9 +496,24 @@ body {
     display: flex !important;
     flex-direction: column !important;
     gap: 2rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
+
   .section-page-viz {
     position: static !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-page .content {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-page .viz {
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   /* Typography adjustments */
   h2 {
@@ -499,5 +532,12 @@ body {
   .sub-section canvas {
     width: 100%;
     height: 250px;
+  }
+
+  .footer {
+    padding: 1rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
