@@ -6,6 +6,12 @@
   <title>Homodynamics</title>
 
   <style>
+    /* Root layout for React app */
+    #root {
+      display: flex;
+      min-height: 100vh;
+    }
+
     body {
       margin: 0;
       background-color: #FDFBF6;
@@ -70,47 +76,122 @@
     }
 
     @media (max-width: 800px) {
-      .menu-button {
-        display: block;
+      html {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #root {
+        flex-direction: column !important;
+        min-height: 100vh !important;
+        width: 100% !important;
       }
 
       .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 1000;
-        transform: translateX(-100%);
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 1000 !important;
+        transform: translateX(-100%) !important;
         transition: transform 0.3s ease-in-out;
-        box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
+        box-shadow: 4px 0px 15px rgba(0,0,0,0.1) !important;
         border-right: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: 100vh !important;
       }
 
       .sidebar.is-open {
-        transform: translateX(0);
+        transform: translateX(0) !important;
       }
-      
+
+      .menu-button {
+        display: block !important;
+      }
+
+      .overlay {
+        display: block !important;
+      }
+
       .main-content {
-        padding: 1.5rem !important; /* Override inline style */
+        flex: 1 !important;
+        width: 100% !important;
+        padding: 1rem 2.5rem !important;
+        margin: 0 !important;
         height: auto !important;
+        min-height: 100vh !important;
         overflow-y: visible !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+
+      /* Full-page sections - each section takes full viewport height */
+      .main-content > div {
+        min-height: 100vh !important;
+        margin-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
       }
 
       .hero {
-        margin-left: -1.5rem !important;
-        margin-right: -1.5rem !important;
-        margin-top: -1.5rem !important;
-        height: 250px !important;
+        margin: 0 !important;
+        min-height: 250px !important;
+        height: auto !important;
+        padding: 2rem 2.5rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
 
       .section-page-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 2rem !important;
+        display: grid !important;
+        grid-template-columns: 55% 40% !important;
+        gap: 5% !important;
       }
 
       .section-page-viz {
-        position: static !important;
+        position: sticky !important;
+        top: 2rem !important;
+        align-self: flex-start !important;
+      }
+
+      .section-page .content {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .section-page .viz {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .footer {
+        padding: 1rem 2.5rem !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .sub-section {
+        flex-direction: column !important;
+      }
+
+      .sub-section canvas {
+        width: 100% !important;
+        height: 250px !important;
       }
 
       /* Typography adjustments */
@@ -125,7 +206,7 @@
       }
     }
   </style>
-<link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="/style.css">
   <script type="importmap">
   {
     "imports": {
@@ -136,7 +217,7 @@
     }
   }
   </script>
-  <script type="module" crossorigin src="/assets/index-C5CAjbAw.js"></script>
+  <script type="module" crossorigin src="/assets/index-CDJ7LQBA.js"></script>
 </head>
 <body>
   <div id="root"></div>
