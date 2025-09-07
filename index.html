@@ -134,9 +134,22 @@
         display: block !important;
       }
 
-      /* Section spacing for smooth scrolling */
+      /* Mobile: Override desktop full-height sections */
       .main-content > div {
+        min-height: auto !important;
         margin-bottom: 2rem !important;
+        display: block !important;
+        flex-direction: initial !important;
+        justify-content: initial !important;
+        padding: 0 !important;
+      }
+
+      .main-content > div:first-child .hero {
+        min-height: 250px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
       }
 
       .hero {
