@@ -111,8 +111,19 @@ body {
   flex: 1;
   padding: 2rem 4rem; /* Base padding */
   box-sizing: border-box;
-  height: 100vh; /* From React inline styles */
-  overflow-y: auto; /* From React inline styles */
+  height: auto; /* Allow content to expand */
+  min-height: 100vh;
+  overflow-y: visible; /* Allow natural scrolling */
+  display: block; /* Ensure block display for scrolling */
+}
+
+/* Add spacing between sections for better scrolling */
+.main-content > div {
+  margin-bottom: 4rem;
+}
+
+.main-content > div:last-child {
+  margin-bottom: 2rem;
 }
 
 
@@ -458,6 +469,16 @@ body {
     min-height: 100vh !important;
     overflow-y: visible !important;
     box-sizing: border-box !important;
+    display: block !important; /* Ensure block display for scrolling */
+  }
+
+  /* Add spacing between sections for better scrolling */
+  .main-content > div {
+    margin-bottom: 4rem !important;
+  }
+
+  .main-content > div:last-child {
+    margin-bottom: 2rem !important;
   }
 
   .hero {
