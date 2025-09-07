@@ -117,17 +117,13 @@ body {
   display: block; /* Ensure block display for scrolling */
 }
 
-/* Full-page sections - each section takes full viewport height */
+/* Section spacing for smooth scrolling */
 .main-content > div {
-  min-height: 100vh;
-  margin-bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  margin-bottom: 2rem;
 }
 
 .main-content > div:last-child {
-  margin-bottom: 0;
+  margin-bottom: 2rem;
 }
 
 
@@ -476,17 +472,13 @@ body {
     display: block !important; /* Ensure block display for scrolling */
   }
 
-  /* Full-page sections on mobile */
+  /* Section spacing for mobile */
   .main-content > div {
-    min-height: 100vh !important;
-    margin-bottom: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
+    margin-bottom: 2rem !important;
   }
 
   .main-content > div:last-child {
-    margin-bottom: 0 !important;
+    margin-bottom: 2rem !important;
   }
 
   .hero {
