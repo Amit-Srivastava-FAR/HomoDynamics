@@ -100,7 +100,29 @@
         margin-left: -1.5rem !important;
         margin-right: -1.5rem !important;
         margin-top: -1.5rem !important;
-        height: 250px !important;
+        min-height: 250px !important;
+        height: auto !important;
+        padding: 2rem 1rem !important;
+      }
+
+      .hero-title-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+      }
+
+      .hero-word {
+        font-size: clamp(2rem, 12vw, 4rem) !important;
+      }
+
+      .hero-plus {
+        font-size: clamp(2rem, 12vw, 4rem) !important;
+        margin: 0 !important;
+      }
+
+      .hero-byline {
+        font-size: 1rem !important;
+        margin-top: 1rem !important;
       }
 
       .section-page-grid {
@@ -125,7 +147,7 @@
       }
     }
   </style>
-<link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="/style.css">
   <script type="importmap">
   {
     "imports": {

@@ -124,8 +124,60 @@ body {
   color: var(--bg-light);
   text-align: center;
   position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Hero title container */
+.hero-title-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Hero words */
+.hero-word {
+  font-family: 'Georgia', serif;
+  font-weight: normal;
+  color: #FDFBF6;
+  display: inline-block;
+  vertical-align: baseline;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+/* Hero plus symbol */
+.hero-plus {
+  font-family: 'Georgia', serif;
+  font-weight: normal;
+  color: #FDFBF6;
+  display: inline-block;
+  vertical-align: baseline;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease,
+              margin 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+              max-width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  margin: 0 0.5rem;
+  max-width: 5rem;
+}
+
+/* Hero byline */
+.hero-byline {
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
+  color: #C1C1C1;
+  margin-top: 1.5rem;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* Legacy support for old hero classes */
 .hero-title {
   font-size: clamp(3rem, 8vw, 6rem);
   margin: 0;
@@ -383,7 +435,29 @@ body {
     margin-left: -1.5rem !important;
     margin-right: -1.5rem !important;
     margin-top: -1.5rem !important;
-    height: 250px !important;
+    min-height: 250px !important;
+    height: auto !important;
+    padding: 2rem 1rem !important;
+  }
+
+  .hero-title-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  .hero-word {
+    font-size: clamp(2rem, 12vw, 4rem) !important;
+  }
+
+  .hero-plus {
+    font-size: clamp(2rem, 12vw, 4rem) !important;
+    margin: 0 !important;
+  }
+
+  .hero-byline {
+    font-size: 1rem !important;
+    margin-top: 1rem !important;
   }
   .section-page-grid {
     display: flex !important;
