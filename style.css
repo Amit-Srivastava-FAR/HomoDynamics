@@ -171,13 +171,15 @@ body {
   font-size: clamp(2.5rem, 8vw, 5rem);
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
   opacity: 0;
+  /* Ensure a default transform for transitions to work from */
+  transform: translateX(0);
 }
 
-.hero-word:first-of-type {
+.hero-word:first-of-type.separated {
   transform: translateX(-20px);
 }
 
-.hero-word:last-of-type {
+.hero-word:last-of-type.separated {
   transform: translateX(20px);
 }
 
