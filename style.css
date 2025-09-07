@@ -55,21 +55,11 @@ body {
   height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
-  /* Mobile specific styles (initial hidden state) */
-  position: fixed; /* Override for mobile */
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 1000;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
-  border-right: none !important; /* Override inline for mobile */
+  z-index: 998; /* Lower z-index than overlay for mobile */
+  transition: transform 0.3s ease-in-out; /* Keep transition for smooth mobile opening */
 }
 
-.sidebar.is-open { /* From React build output */
-  transform: translateX(0);
-}
+/* .sidebar.is-open is only for mobile, handled within media query */
 
 .sidebar h1 {
   font-size: 1.8rem; /* From React inline styles */
@@ -366,11 +356,17 @@ body {
     flex-direction: column;
   }
   .sidebar {
-    /* Mobile specific styles are already defined above and overridden by this block */
-    transform: translateX(-100%); /* Ensure it starts hidden */
+    position: fixed; /* Override desktop sticky for mobile */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000; /* Higher z-index for mobile when open */
+    transform: translateX(-100%); /* Hidden by default on mobile */
+    box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
+    border-right: none !important;
   }
-  .sidebar.is-open { /* Redefine for mobile open state */
-    transform: translateX(0);
+  .sidebar.is-open {
+    transform: translateX(0); /* Visible when open on mobile */
   }
   .menu-button {
     display: block;
