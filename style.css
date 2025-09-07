@@ -513,16 +513,9 @@ body {
     font-size: 1rem !important;
     margin-top: 1rem !important;
   }
+  /* Full-page sections on mobile */
   .section-page-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .section-page-viz {
-    position: static !important;
+    display: block !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
