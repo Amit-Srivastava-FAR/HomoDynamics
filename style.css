@@ -55,11 +55,26 @@ body {
   height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
-  z-index: 998; /* Lower z-index than overlay for mobile */
+  z-index: 998;
   transition: transform 0.3s ease-in-out; /* Keep transition for smooth mobile opening */
 }
 
-/* .sidebar.is-open is only for mobile, handled within media query */
+@media (max-width: 800px) {
+  .sidebar {
+    position: fixed; /* Override desktop sticky for mobile */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000; /* Higher z-index for mobile when open */
+    transform: translateX(-100%); /* Hidden by default on mobile */
+    box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
+    border-right: none !important;
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0); /* Visible when open on mobile */
+  }
+}
 
 .sidebar h1 {
   font-size: 1.8rem; /* From React inline styles */
@@ -115,6 +130,13 @@ body {
   overflow-y: auto; /* From React inline styles */
 }
 
+/* App container */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #FDFBF6;
+}
+
 
 /* Hero section */
 .hero {
@@ -148,6 +170,31 @@ body {
   vertical-align: baseline;
   font-size: clamp(2.5rem, 8vw, 5rem);
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+  opacity: 0;
+}
+
+.hero-word:first-of-type {
+  transform: translateX(-20px);
+}
+
+.hero-word:last-of-type {
+  transform: translateX(20px);
+}
+
+.hero-word.is-visible {
+  opacity: 1;
+}
+
+.hero-word.is-visible.separated {
+  transform: translateX(0);
+}
+
+.hero-word.merged-left {
+  transform: translateX(2.5rem);
+}
+
+.hero-word.merged-right {
+  transform: translateX(-2.5rem);
 }
 
 /* Hero plus symbol */
@@ -163,8 +210,18 @@ body {
   transition: opacity 0.4s ease,
               margin 0.8s cubic-bezier(0.25, 1, 0.5, 1),
               max-width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  margin: 0 0.5rem;
-  max-width: 5rem;
+  margin: 0 1rem; /* Initial state for separation */
+  max-width: 5rem; /* Initial state for expansion */
+}
+
+.hero-plus.is-visible {
+  opacity: 1;
+}
+
+.hero-plus.merged {
+  margin: 0; /* Collapse margin */
+  max-width: 0; /* Collapse width */
+  opacity: 0;
 }
 
 /* Hero byline */
@@ -177,39 +234,8 @@ body {
   transition: opacity 1s ease;
 }
 
-/* Legacy support for old hero classes */
-.hero-title {
-  font-size: clamp(3rem, 8vw, 6rem);
-  margin: 0;
-  font-weight: normal;
-}
-
-.hero-title .plus {
-  margin: 0 0.5rem;
-  /* For hero animation: hide overflow, animate margin and width */
-  display: inline-block;
-  overflow: hidden;
-  max-width: 5rem;
-  opacity: 0;
-  transition: opacity 0.4s ease,
-              margin 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-              max-width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Byline fades in after hero animation */
-.hero-credit {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin: 1rem 0;
-  color: #C1C1C1;
-}
-
-.hero-symbol {
-  margin: 2rem auto;
+.hero-byline.is-visible {
+  opacity: 1;
 }
 
 /* Section pages */
@@ -430,6 +456,8 @@ body {
     padding: 1.5rem !important; /* Override inline style */
     height: auto !important;
     overflow-y: visible !important;
+    width: 100% !important; /* Ensure it takes full width */
+    flex-shrink: 0; /* Prevent shrinking */
   }
   .hero {
     margin-left: -1.5rem !important;
