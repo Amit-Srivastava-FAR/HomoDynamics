@@ -43,6 +43,69 @@ body {
   display: flex;
 }
 
+/* Sidebar navigation */
+.sidebar {
+  width: 320px; /* From React inline styles */
+  min-width: 320px; /* From React inline styles */
+  background-color: var(--panel-bg);
+  border-right: 1px solid var(--border-light);
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  z-index: 998; /* Lower z-index than overlay for mobile */
+  transition: transform 0.3s ease-in-out; /* Keep transition for smooth mobile opening */
+}
+
+/* .sidebar.is-open is only for mobile, handled within media query */
+
+.sidebar h1 {
+  font-size: 1.8rem; /* From React inline styles */
+  margin-bottom: 2rem;
+  color: var(--primary);
+  font-family: 'Georgia', serif; /* From React inline styles */
+  font-weight: normal;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 1rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 0.75rem 1rem; /* From React inline styles */
+  border-radius: 4px;
+  color: var(--text-medium);
+  text-decoration: none;
+  font-size: 0.95rem; /* From React inline styles */
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar nav a.active {
+  background-color: var(--highlight-bg); /* Original active state */
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Specific to React's way of managing active links, overriding general hover */
+.sidebar nav a[aria-current="page"] {
+    background-color: var(--highlight-bg);
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.sidebar nav a:hover {
+  background-color: var(--highlight-bg);
+  color: var(--primary);
+}
+
+
 /* Main content area */
 .main-content {
   flex: 1;
@@ -50,144 +113,6 @@ body {
   box-sizing: border-box;
   height: 100vh; /* From React inline styles */
   overflow-y: auto; /* From React inline styles */
-}
-
-/* App container - no sidebar */
-.app-container-no-sidebar {
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
-  background-color: #FDFBF6;
-  flex-direction: column; /* Ensure content flows vertically */
-}
-
-/* Navbar styles */
-.navbar {
-  background-color: var(--panel-bg);
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border-light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-}
-
-.navbar-brand a {
-  font-size: 1.8rem;
-  color: var(--primary);
-  font-family: 'Georgia', serif;
-  font-weight: normal;
-  text-decoration: none;
-}
-
-.navbar-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar-links a {
-  text-decoration: none;
-  color: var(--text-medium);
-  font-size: 0.95rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.navbar-links a.active {
-  background-color: var(--highlight-bg);
-  color: var(--primary);
-  font-weight: bold;
-}
-
-.navbar-links a:hover {
-  background-color: var(--highlight-bg);
-  color: var(--primary);
-}
-
-/* Mobile menu toggle */
-.menu-toggle {
-  display: none; /* Hidden by default on desktop */
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1001;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: var(--primary);
-  margin: 5px 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Responsive adjustments for Navbar */
-@media (max-width: 800px) {
-  .navbar {
-    padding: 1rem 1.5rem;
-  }
-
-  .navbar-links {
-    display: none; /* Hide desktop links by default */
-    flex-direction: column;
-    position: absolute;
-    top: 100%; /* Position below navbar */
-    left: 0;
-    width: 100%;
-    background-color: var(--panel-bg);
-    border-top: 1px solid var(--border-light);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    padding: 1rem 0;
-  }
-
-  .navbar-links.is-open {
-    display: flex; /* Show mobile menu when open */
-  }
-
-  .navbar-links li {
-    text-align: center;
-  }
-
-  .navbar-links a {
-    padding: 0.75rem 1rem;
-    width: calc(100% - 2rem); /* Adjust for padding */
-    margin: 0 auto;
-  }
-
-  .menu-toggle {
-    display: block; /* Show hamburger menu on mobile */
-  }
-
-  /* Adjust main content padding when navbar is present */
-  .main-content {
-    padding-top: 0 !important; /* Remove top padding from main-content as navbar handles it */
-    margin-top: 1rem; /* Add some margin below the navbar */
-  }
-
-  .hero {
-    margin-top: 0 !important; /* Adjust hero margin for top navbar */
-  }
 }
 
 
@@ -223,33 +148,6 @@ body {
   vertical-align: baseline;
   font-size: clamp(2.5rem, 8vw, 5rem);
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-  opacity: 0;
-  /* Ensure a default transform for transitions to work from */
-  transform: translateX(0);
-}
-
-.hero-word:first-of-type.separated {
-  transform: translateX(-20px);
-}
-
-.hero-word:last-of-type.separated {
-  transform: translateX(20px);
-}
-
-.hero-word.is-visible {
-  opacity: 1;
-}
-
-.hero-word.is-visible.separated {
-  transform: translateX(0);
-}
-
-.hero-word.merged-left {
-  transform: translateX(2.5rem);
-}
-
-.hero-word.merged-right {
-  transform: translateX(-2.5rem);
 }
 
 /* Hero plus symbol */
@@ -265,18 +163,8 @@ body {
   transition: opacity 0.4s ease,
               margin 0.8s cubic-bezier(0.25, 1, 0.5, 1),
               max-width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  margin: 0 1rem; /* Initial state for separation */
-  max-width: 5rem; /* Initial state for expansion */
-}
-
-.hero-plus.is-visible {
-  opacity: 1;
-}
-
-.hero-plus.merged {
-  margin: 0; /* Collapse margin */
-  max-width: 0; /* Collapse width */
-  opacity: 0;
+  margin: 0 0.5rem;
+  max-width: 5rem;
 }
 
 /* Hero byline */
@@ -289,8 +177,39 @@ body {
   transition: opacity 1s ease;
 }
 
-.hero-byline.is-visible {
-  opacity: 1;
+/* Legacy support for old hero classes */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin: 0;
+  font-weight: normal;
+}
+
+.hero-title .plus {
+  margin: 0 0.5rem;
+  /* For hero animation: hide overflow, animate margin and width */
+  display: inline-block;
+  overflow: hidden;
+  max-width: 5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease,
+              margin 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+              max-width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Byline fades in after hero animation */
+.hero-credit {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: #C1C1C1;
+}
+
+.hero-symbol {
+  margin: 2rem auto;
 }
 
 /* Section pages */
@@ -425,25 +344,115 @@ body {
   margin-top: 4rem;
 }
 
+/* Mobile menu button (from React build output) */
+.menu-button {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 1.5rem; /* Adjusted for better spacing */
+  left: 1.5rem; /* Adjusted for better spacing */
+  z-index: 1001;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-button div {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+
+/* Transform lines into X when open (from original script.js logic, but styles defined here) */
+.menu-button.open div:nth-child(1) { /* Changed span to div as per React output */
+  transform: rotate(45deg) translateY(7px); /* Adjusted for visual alignment */
+}
+
+.menu-button.open div:nth-child(2) { /* Changed span to div as per React output */
+  opacity: 0;
+}
+
+.menu-button.open div:nth-child(3) { /* Changed span to div as per React output */
+  transform: rotate(-45deg) translateY(-7px); /* Adjusted for visual alignment */
+}
+
+/* Overlay for mobile sidebar (from React build output) */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay.is-visible { /* From React build output */
+  display: block;
+  opacity: 1;
+}
+
 /* Responsive styles (from React build output) */
 @media (max-width: 800px) {
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
   #root {
     flex-direction: column;
+    min-height: 100vh;
+  }
+  .sidebar {
+    position: fixed; /* Override desktop sticky for mobile */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000; /* Higher z-index for mobile when open */
+    transform: translateX(-100%); /* Hidden by default on mobile */
+    box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
+    border-right: none !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .sidebar.is-open {
+    transform: translateX(0); /* Visible when open on mobile */
+  }
+  .menu-button {
+    display: block;
+  }
+  .overlay {
+    display: block;
   }
   .main-content {
-    padding: 1.5rem !important; /* Override inline style */
+    padding: 0 !important;
     height: auto !important;
     overflow-y: visible !important;
-    width: 100% !important; /* Ensure it takes full width */
-    flex-shrink: 0; /* Prevent shrinking */
+    min-height: 100vh !important;
+    width: 100% !important;
   }
+
   .hero {
-    margin-left: -1.5rem !important;
-    margin-right: -1.5rem !important;
-    margin-top: -1.5rem !important;
+    margin: 0 !important;
     min-height: 250px !important;
     height: auto !important;
     padding: 2rem 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-title-container {

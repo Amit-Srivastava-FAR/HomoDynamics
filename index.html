@@ -11,6 +11,18 @@
       background-color: #FDFBF6;
       color: #3A3A3A;
       font-family: 'Georgia', serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    #root {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     /* Custom Scrollbar for a refined look */
     ::-webkit-scrollbar {
@@ -74,6 +86,10 @@
         display: block;
       }
 
+      #root {
+        flex-direction: column !important;
+      }
+
       .sidebar {
         position: fixed;
         left: 0;
@@ -84,23 +100,49 @@
         transition: transform 0.3s ease-in-out;
         box-shadow: 4px 0px 15px rgba(0,0,0,0.1);
         border-right: none !important;
+        width: 100% !important;
+        max-width: none !important;
       }
 
       .sidebar.is-open {
         transform: translateX(0);
       }
-      
+
       .main-content {
-        padding: 1.5rem !important; /* Override inline style */
+        padding: 0 !important;
         height: auto !important;
         overflow-y: visible !important;
+        min-height: 100vh !important;
+        width: 100% !important;
       }
 
       .hero {
-        margin-left: -1.5rem !important;
-        margin-right: -1.5rem !important;
-        margin-top: -1.5rem !important;
-        height: 250px !important;
+        margin: 0 !important;
+        min-height: 250px !important;
+        height: auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .hero-title-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+      }
+
+      .hero-word {
+        font-size: clamp(2rem, 12vw, 4rem) !important;
+      }
+
+      .hero-plus {
+        font-size: clamp(2rem, 12vw, 4rem) !important;
+        margin: 0 !important;
+      }
+
+      .hero-byline {
+        font-size: 1rem !important;
+        margin-top: 1rem !important;
       }
 
       .section-page-grid {
@@ -125,7 +167,7 @@
       }
     }
   </style>
-<link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="/style.css">
   <script type="importmap">
   {
     "imports": {
@@ -136,7 +178,7 @@
     }
   }
   </script>
-  <script type="module" crossorigin src="/assets/index-YhPncPeY.js"></script>
+  <script type="module" crossorigin src="/assets/index-C6vltUec.js"></script>
 </head>
 <body>
   <div id="root"></div>
