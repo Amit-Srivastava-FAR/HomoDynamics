@@ -495,18 +495,20 @@ body {
   }
 
   .hero-title-container {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
+    flex-direction: row !important; /* Keep horizontal for animation */
+    align-items: baseline !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important; /* Allow wrapping if needed */
+    gap: 0 !important; /* Remove gap to allow proper merging */
   }
 
   .hero-word {
-    font-size: clamp(2rem, 12vw, 4rem) !important;
+    font-size: clamp(1.8rem, 10vw, 3.5rem) !important; /* Slightly smaller for mobile */
   }
 
   .hero-plus {
-    font-size: clamp(2rem, 12vw, 4rem) !important;
-    margin: 0 !important;
+    font-size: clamp(1.8rem, 10vw, 3.5rem) !important;
+    margin: 0 0.5rem !important; /* Restore margin for proper spacing */
   }
 
   .hero-byline {
